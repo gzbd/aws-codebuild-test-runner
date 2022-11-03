@@ -1,0 +1,3 @@
+export TEST_RUNNER_IMAGE=481992040149.dkr.ecr.eu-central-1.amazonaws.com/aws-codebuild-test-runner:latest
+export TEST_SERVICE_IMAGE=481992040149.dkr.ecr.eu-central-1.amazonaws.com/aws-codebuild-test-service:latest
+

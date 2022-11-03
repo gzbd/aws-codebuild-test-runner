@@ -1,0 +1,19 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_ACCESS_KEY_ID: "xxx"
+    AWS_SECRET_ACCESS_KEY: "xxx"
+    AWS_REGION: eu-central-1
+    AWS_DEFAULT_REGION: eu-central-1
+
+phases:
+  build:
+    on-failure: ABORT
+    commands:
+      - $(aws ecr get-login --no-include-email --region eu-central-1)
+      - docker build -t aws-codebuild-test-runner .
+      - source ./default_env_vars
+        # override TEST_RUNNER_IMAGE to always rebuild it from source
+      - TEST_RUNNER_IMAGE=aws-codebuild-test-runner docker-compose --project-name src run integration_tests
+      - docker-compose --project-name src down
