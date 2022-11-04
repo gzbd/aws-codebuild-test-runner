@@ -5,7 +5,8 @@ phases:
     on-failure: ABORT
     commands:
       - $(aws ecr get-login --no-include-email --region eu-central-1)
+      - docker build -t aws-codebuild-test-runner .
       - source ./default_env_vars
         # override TEST_RUNNER_IMAGE to always rebuild it from source
-      - TEST_RUNNER_IMAGE=none docker-compose run integration_tests
+      - TEST_RUNNER_IMAGE=aws-codebuild-test-runner docker-compose run integration_tests
       - docker-compose down
