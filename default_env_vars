@@ -1,1 +1,1 @@
-export TEST_SERVICE_IMAGE=aws-codebuild-test-service:latest
+export TEST_SERVICE_IMAGE=481992040149.dkr.ecr.eu-central-1.amazonaws.com/aws-codebuild-test-runner:latest
