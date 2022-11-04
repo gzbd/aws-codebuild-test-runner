@@ -11,4 +11,4 @@ services:
     command: ["docker", "logs", "aws-codebuild-test-runner_test_service_1"]
 
   test_service:
-    image: "aws-codebuild-test-service:${TEST_SERVICE_IMAGE_VERSION}"
+    image: "${TEST_SERVICE_IMAGE}"

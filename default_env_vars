@@ -1,1 +1,1 @@
-export TEST_SERVICE_IMAGE_VERSION=latest
+export TEST_SERVICE_IMAGE=aws-codebuild-test-service:latest
