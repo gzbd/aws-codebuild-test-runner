@@ -1,0 +1,9 @@
+version: 0.2
+
+phases:
+  build:
+    on-failure: ABORT
+    commands:
+      - source ./default_env_vars
+      - docker-compose run integration_tests
+      - docker-compose down
