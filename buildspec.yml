@@ -6,5 +6,6 @@ phases:
     commands:
       - $(aws ecr get-login --no-include-email --region eu-central-1)
       - source ./default_env_vars
-      - docker-compose run integration_tests
+        # override TEST_RUNNER_IMAGE to always rebuild it from source
+      - TEST_RUNNER_IMAGE=none docker-compose run integration_tests
       - docker-compose down

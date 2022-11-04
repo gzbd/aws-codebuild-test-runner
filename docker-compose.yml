@@ -4,6 +4,7 @@ version: "3.4"
 services:
   integration_tests:
     build: .
+    image: "${TEST_RUNNER_IMAGE}"
     depends_on:
       - test_service
     volumes:
